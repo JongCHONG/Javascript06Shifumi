@@ -26,7 +26,6 @@ function onButtonClick(signeplayer) {
         imageia.setAttribute("src", "images/3-ciseaux.jpg")
         signe_ia ="ciseaux"
     }
-    
     if (signeplayer === "pierre" && signe_ia === "feuille") {
         var newParagraph = document.createElement("h2")
         var text = document.createTextNode("ia win")
