@@ -1,0 +1,14 @@
+.container{
+    width: 996px;
+    margin: auto;
+}
+.middle{
+    display: flex;
+
+}
+img{
+    width: 50%;
+}
+button{
+    display: block;
+}
