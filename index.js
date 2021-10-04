@@ -27,4 +27,12 @@ function onButtonClick(signeplayer) {
         signe_ia ="ciseaux"
     }
     
+    if (signeplayer === "pierre" && signe_ia === "feuille") {
+        var newParagraph = document.createElement("h2")
+        var text = document.createTextNode("ia win")
+        newParagraph.appendChild(text);
+        var element = document.getElementById("result")
+        element.appendChild(newParagraph)
+
+    }
 }
