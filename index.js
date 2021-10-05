@@ -62,3 +62,6 @@ function onButtonClick(signe_player) {
     resultatfinal.appendChild(final)
     element.appendChild(resultatfinal)
 }
+function clearResult(){
+    document.getElementById("result").innerHTML = ''
+  }
