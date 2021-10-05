@@ -8,6 +8,7 @@ function onButtonClick(signe_player) {
     var max = 3
     var random = Math.floor(Math.random() * (max - min + 1) + min)
     var image_player = document.getElementById("player-signe")
+    document.getElementById("details").innerHTML = ''
 
     if (signe_player === "pierre") {
         image_player.setAttribute("src", "images/1-pierre.jpg")
@@ -19,21 +20,27 @@ function onButtonClick(signe_player) {
         image_player.setAttribute("src", "images/3-ciseaux.jpg")
     }
     //Bonus Animation
-    var myvar = setInterval(random_ia, 200) //lancer ma fonction tous les 4ms
-    setTimeout(function () {
+    var myvar = setInterval(random_ia, 50) //lancer ma fonction tous les 4ms
+    setTimeout(function () { //setTimeout lance tout le programme après clearinterval
         clearInterval(myvar)
         //Comparaison
         if ((signe_player === "pierre" && signe_ia === "pierre") || 
         (signe_player === "feuille" && signe_ia === "feuille") ||
         (signe_player === "ciseaux" && signe_ia === "ciseaux")) {
-            var text = document.createTextNode("Egalité")
+            var details = document.createTextNode("Egalité")
         } else if ((signe_player === "feuille" && signe_ia === "pierre") ||
             (signe_player === "ciseaux" && signe_ia === "feuille") ||
             (signe_player === "pierre" && signe_ia === "ciseaux")) {
                 score_player++
+                var details = document.createTextNode("Player wins")
         } else {
             score_ia++
+            var details = document.createTextNode("IA wins")
         }
+        var round = document.createElement("p")
+        round.appendChild(details)
+        var element = document.getElementById("details")
+        element.appendChild(round)
         //affichage round
         var resultat = document.createElement("h2")
         var text = document.createTextNode(`${score_ia} IA - Moi ${score_player}`)
@@ -44,20 +51,21 @@ function onButtonClick(signe_player) {
         var resultatfinal = document.createElement("p")
         var final 
         if (score_ia === 5) {
-            final = document.createTextNode(`${score_ia} IA Win`)
+            final = document.createTextNode(`${score_ia} IA gagne la partie`)
             score_ia = 0
             score_player = 0
             resultatfinal.appendChild(final)
+            var element = document.getElementById("details")
             element.appendChild(resultatfinal)
         } else if (score_player === 5) {
-            final = document.createTextNode(`${score_player} IA Win`)
+            final = document.createTextNode(`${score_player} Player gagne la partie`)
             score_player = 0
             score_ia = 0
             resultatfinal.appendChild(final)
+            var element = document.getElementById("details")
             element.appendChild(resultatfinal)
         }
-    }, 3000) //setTimeout
-
+    }, 1000) //setTimeout
 }
 function random_ia () {
     var min = 1
