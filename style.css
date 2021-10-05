@@ -1,14 +1,15 @@
-.container{
+.container {
     width: 996px;
     margin: auto;
 }
-.middle{
+.middle, #button {
     display: flex;
-
+    text-align: center;
 }
-img{
+img {
     width: 50%;
 }
-button{
-    display: block;
+#result {
+    border: 1px solid black;
+    width: 200px;
 }
