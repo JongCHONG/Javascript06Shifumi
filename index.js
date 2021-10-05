@@ -3,6 +3,7 @@ function onButtonClick(signeplayer) {
     var max = 3
     var signe_ia = ""
     var random = Math.floor(Math.random() * (max - min + 1) + min)
+    var resultat = document.createElement("h2")
     var imageplayer = document.getElementById("player-signe")
     var imageia = document.getElementById("ia-signe")
     if (signeplayer === "pierre") {
@@ -26,12 +27,18 @@ function onButtonClick(signeplayer) {
         imageia.setAttribute("src", "images/3-ciseaux.jpg")
         signe_ia ="ciseaux"
     }
-    if (signeplayer === "pierre" && signe_ia === "feuille") {
-        var newParagraph = document.createElement("h2")
-        var text = document.createTextNode("ia win")
-        newParagraph.appendChild(text);
-        var element = document.getElementById("result")
-        element.appendChild(newParagraph)
-
-    }
+    if ((signeplayer === "pierre" && signe_ia === "pierre") || 
+        (signeplayer === "feuille" && signe_ia === "feuille") ||
+        (signeplayer === "ciseaux" && signe_ia === "ciseaux")) {
+            var text = document.createTextNode("Egalité")
+        } else if ((signeplayer === "feuille" && signe_ia === "pierre") ||
+            (signeplayer === "ciseaux" && signe_ia === "feuille") ||
+            (signeplayer === "pierre" && signe_ia === "ciseaux")) {
+            var text = document.createTextNode("player win")
+        } else {
+            var text = document.createTextNode("ia win")
+        }
+    resultat.appendChild(text);
+    var element = document.getElementById("result")
+    element.appendChild(resultat)
 }
