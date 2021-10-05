@@ -2,9 +2,9 @@ var score_ia = 0
 var score_player = 0
 
 function onButtonClick(signe_player) {
+    var signe_ia = ""
     var min = 1
     var max = 3
-    var signe_ia = ""
     var random = Math.floor(Math.random() * (max - min + 1) + min)
     var image_player = document.getElementById("player-signe")
     var image_ia = document.getElementById("ia-signe")
@@ -50,18 +50,31 @@ function onButtonClick(signe_player) {
     element.appendChild(resultat)
     //Bonus Score
     var resultatfinal = document.createElement("p")
+    var final 
     if (score_ia === 5) {
-        var final = document.createTextNode(`${score_ia} IA Win`)
+        final = document.createTextNode(`${score_ia} IA Win`)
         score_ia = 0
         score_player = 0
+        resultatfinal.appendChild(final)
+        element.appendChild(resultatfinal)
     } else if (score_player === 5) {
-        var final = document.createTextNode(`${score_player} IA Win`)
+        final = document.createTextNode(`${score_player} IA Win`)
         score_player = 0
         score_ia = 0
+        resultatfinal.appendChild(final)
+        element.appendChild(resultatfinal)
     }
-    resultatfinal.appendChild(final)
-    element.appendChild(resultatfinal)
+    
+    //Bonus Animation
+    var myvar = setInterval(random_ia, 4000)
 }
+function random_ia () {
+    var min = 1
+    var max = 3
+    var random = Math.floor(Math.random() * (max - min + 1) + min)
+    console.log (random)
+}
+// pour effacer le contenu d'un html
 function clearResult(){
-    document.getElementById("result").innerHTML = ''
-  }
+    document.getElementById("result").innerHTML = '' 
+}
