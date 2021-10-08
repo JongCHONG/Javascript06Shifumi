@@ -11,13 +11,13 @@ function onButtonClick(signe_player) {
     document.getElementById("details").innerHTML = ''
 
     if (signe_player === "pierre") {
-        image_player.setAttribute("src", "images/1-pierre.jpg")
+        image_player.setAttribute("src", "images/1-pierre.png")
     }
     if (signe_player === "feuille") {
-        image_player.setAttribute("src", "images/2-feuille.jpg")
+        image_player.setAttribute("src", "images/2-feuille.png")
     }
     if (signe_player === "ciseaux") {
-        image_player.setAttribute("src", "images/3-ciseaux.jpg")
+        image_player.setAttribute("src", "images/3-ciseaux.png")
     }
     //Bonus Animation
     var myvar = setInterval(random_ia, 50) //lancer ma fonction tous les 4ms
@@ -33,10 +33,10 @@ function onButtonClick(signe_player) {
             (signe_player === "pierre" && signe_ia === "ciseaux")) {
                 score_player++
                 var details = document.createTextNode("Player wins")
-        } else {
-            score_ia++
-            var details = document.createTextNode("IA wins")
-        }
+            } else {
+                score_ia++
+                var details = document.createTextNode("IA wins")
+            }
         var round = document.createElement("p")
         round.appendChild(details)
         var element = document.getElementById("details")
@@ -47,6 +47,8 @@ function onButtonClick(signe_player) {
         resultat.appendChild(text)
         var element = document.getElementById("result")
         element.appendChild(resultat)
+        document.getElementById("score-ia").innerHTML = "- " + score_ia
+        document.getElementById("score-player").innerHTML = "- " + score_player
         //Bonus Score
         var resultatfinal = document.createElement("p")
         var final 
@@ -72,15 +74,15 @@ function random_ia () {
     var max = 3
     var random = Math.floor(Math.random() * (max - min + 1) + min)
     if (random === 1) {
-        image_ia.setAttribute("src", "images/1-pierre.jpg")
+        image_ia.setAttribute("src", "images/1-pierre-IA.png")
         signe_ia = "pierre"
     }
     if (random === 2) {
-        image_ia.setAttribute("src", "images/2-feuille.jpg")
+        image_ia.setAttribute("src", "images/2-feuille-IA.png")
         signe_ia = "feuille"
     }
     if (random === 3) {
-        image_ia.setAttribute("src", "images/3-ciseaux.jpg")
+        image_ia.setAttribute("src", "images/3-ciseaux-IA.png")
         signe_ia ="ciseaux"
     }
 }

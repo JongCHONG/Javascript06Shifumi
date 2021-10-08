@@ -1,6 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+body{
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: white;
+    background-color: #202020;
+}
 .container {
     width: 996px;
     margin: auto;
+    text-align: center;
+}
+h1{
+    letter-spacing: 35px;
+    font-size: 100px;
+    text-align: center;
+    margin-left: 35px;
 }
 .middle, #button {
     display: flex;
@@ -9,7 +23,11 @@
 img {
     width: 50%;
 }
+#ia-signe, #player-signe{
+    width: 40%
+}
 #result {
-    border: 1px solid black;
+    border: 1px solid white;
     width: 200px;
+    color : white
 }
