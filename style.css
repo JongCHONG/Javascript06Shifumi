@@ -14,20 +14,43 @@ h1{
     letter-spacing: 35px;
     font-size: 100px;
     text-align: center;
-    margin-left: 35px;
+    margin: 0 0 0 35px;
 }
 .middle, #button {
     display: flex;
-    text-align: center;
-}
+    justify-content: center;}
 img {
     width: 50%;
+}
+.player img{
+    width: 70%;
+}
+.ia, .player{
+    width: 100%;
 }
 #ia-signe, #player-signe{
     width: 40%
 }
 #result {
     border: 1px solid white;
-    width: 200px;
+    width: 450px;
     color : white
+}
+button {
+    background-color: #202020;
+    color: white;
+    margin: 10px;
+    width: 100px;
+    border-radius: 50px;
+    border: 5px solid #FFC028;
+    padding: 5px;
+}
+button:hover{
+    background-color: #FFC028;
+}
+#reset{
+    margin: 20px;
+}
+#details{
+    margin-top: 20px;
 }
